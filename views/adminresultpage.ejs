@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+      .poll{
+    width: 350px;
+  padding: 1.5rem;
+  margin: 50px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  background-color: lightskyblue;
+}
+       .poll__title{
+        font-weight:bold;
+        font-size: 1.5rem;
+        margin-bottom: 0.3rem;
+       }
+   </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <title>
+    Result Page
+  </title>
+  </head>
+  <div class="bg-black-600 px-2 py-2 hover:bgblack-600" >
+    <a href="/listofelections/<%=id%>" class="text-white bg-gray-600 hover:bg-gray-900 font-medium rounded px-4 py-2 flex-gap 2">GO BACK</a>
+</div>
+  <center>
+  <div class="grid grid-cols-6">
+    <div class="col-start-3 col-span-2">
+    <h3 class="text-2xl my-2 font-medium"><b><%= title %> Election Results </b></h3>
+    <p class="pt-2 text-black-600 text-sxl"><b>Total number of Voters Present in the election : </b><b><%= allvoters %></b></p>
+    <p class="pt-2 text-black-600 text-sxl"><b>Total number of Voters Casted their Vote : </b><b><%= countvoted %></b></p>
+    <p class="pt-2 text-black-600 text-sxl"><b>Total number of Voters Pending : </b><b><%= countvotepending %></b></p>
+    </div>
+  </div>
+</center>
+<body style="background-color: cornsilk;">
+  <% for (var i=0; i<questionslist.length; i++) { %>
+  <div class="poll">
+     <div class="poll__title"><%= i+1 %>. <%= questionslist[i].questionname %>
+      <p class="text-gray-600"><%= questionslist[i].description %></p>
+      <div class="pt-6 pl-4 flex flex-col gap-3">
+        <% for (var j=0; j<valueoptions[i].length; j++) { %>
+           <div class="flex gap-1" >
+          <p class="flex items-center gap-2 text-xl"><%= valueoptions[i][j].optionname %>: <hr width="<%=numberofoptions[i][j]%>5%" style="height:20px; border-radius: 10px; cursor:pointer; background-color:gray; display: -webkit-inline-box;" /><p class="text-red-700 text-xl"><%= numberofoptions[i][j]%></p></p></div>
+        <% } %>
+    </div>
+    </div>
+  </div>
+  <% } %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div class="pt-8">
+    <div class="flex flex-col gap-6">
+      <% for (var i=0; i<questionslist.length; i++) { %>
+          <div>
+              <p class="font-bold text-xl"><%= i+1 %>. <%= questionslist[i].title %></p>
+              <p class="text-gray-600"><%= questionslist[i].description %></p>
+              <div class="pt-6 pl-6 flex flex-col gap-4">
+                  <% for (var j=0; j<valueoptions[i].length; j++) { %>
+                     <div class="flex gap-2"><hr width="<%= numberofoptions[i][j] %>%" style="height:30px; border:none; color:purple; background-color:purple;" /><p class="flex items-center gap-2 text-xl"><%= valueoptions[i][j].optionname %>:<b class="text-blue-700"><%= numberofoptions[i][j]%></b></p></div>
+                  <% } %>
+              </div>
+          </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+</div> -->
+</body>
+</html>
+   

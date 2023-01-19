@@ -1,0 +1,20 @@
+<div>  
+    <b>
+    <p class="text-red-700"><%= (elections_list.length==0)?"Empty elections!!!":"" %></p>
+</b>
+ <ul class="list-none">
+        <% for (let i=0; i<elections_list.length; i++) { %>
+            <li>
+                <div class="flex items-center w-fit my-2 px-2 py-1 rounded">
+                    <b>
+                    <h2  class="m-1 text-sm text-black-300 "><a href="/listofelections/<%=elections_list[i].id %>" class="m-1 text-sm text-black-600 "><%=i+1%>)<%= elections_list[i].electionName %> </a></h2>
+                    <div class="flex gap-2 text-600" align="center">
+                        <div class="rounded w-fit px-2 py-1 flex gap-2 cursor-pointer hover:text-600">    
+                            <a href="/elections/<%=elections_list[i].id%>/modify" class="text-white bg-gray-600 hover:bg-gray-800 font-medium rounded  rounded px-2 ">modifyelection</a>
+                        </div>
+                </b>
+                </div>
+            </li>
+        <% } %>
+    </ul>
+</div>

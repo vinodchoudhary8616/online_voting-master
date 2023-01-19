@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+      .poll{
+    width: 350px;
+  padding: 1.5rem;
+  margin: 50px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  background-color: lightskyblue;
+}
+       .poll__title{
+        font-weight:bold;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+       }
+   </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <title>
+    Result Page
+  </title>
+  </head>
+<center>
+     <h1 class="text-2xl my-4 font-medium"><b><%= title %> Election Results </b></h1>
+</center>
+  <body style="background-color: cornsilk;">
+    <% for (var i=0; i<questionslist.length; i++) { %>
+    <div class="poll">
+       <div class="poll__title"><%= i+1 %>. <%= questionslist[i].questionname %>
+        <p class="text-gray-600"><%= questionslist[i].description %></p>
+        <div class="pt-6 pl-4 flex flex-col gap-3">
+          <% for (var j=0; j<valueoptions[i].length; j++) { %>
+             <div class="flex gap-1" >
+            <p class="flex items-center gap-2 text-xl"><%= valueoptions[i][j].optionname %>: <hr width="<%=numberofoptions[i][j]%>5%" style="height:20px; border-radius: 10px; cursor:pointer; background-color:gray; display: -webkit-inline-box;" /><p class="text-red-700 text-xl"><%= numberofoptions[i][j]%></p></p></div>
+          <% } %>
+      </div>
+      </div>
+    </div>
+    <% } %>
