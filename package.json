@@ -16,7 +16,7 @@
       "prettier --write ."
     ]
   },
-  "author": "saimallik <rameshwaramsaimallik@gmail.com>",
+  "author": "vinod choudhary",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.2.2",
